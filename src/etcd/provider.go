@@ -14,7 +14,7 @@ func Provider() terraform.ResourceProvider {
 			"endpoint": &schema.Schema{
 				Type:     schema.TypeString,
 				Optional: true,
-				Default:  []string{"http://127.0.0.1:2379"},
+				Default:  "http://127.0.0.1:2379",
 			},
 		},
 		ResourcesMap: map[string]*schema.Resource{
