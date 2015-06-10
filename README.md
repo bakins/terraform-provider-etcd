@@ -5,11 +5,8 @@
 
 Development/Testing.
 
-Currently only supports [etcd cluster discovery](https://coreos.com/docs/cluster-management/setup/cluster-discovery/)
 
 ## TODO
-
-Support etcd keys similar to the [consul provider](https://www.terraform.io/docs/providers/consul/index.html)
 
 ## Install
 
@@ -41,6 +38,8 @@ providers {
 
 ## Usage
 
+### Discovery
+
 Simple usage:
 
 ```
@@ -60,3 +59,34 @@ The resource `etcd_discovery` has the following optional fields:
 
 The resulting URL is availible in the `url` output of the resource -- `etcd_discovery.test.url` in this example.
 
+### Keys
+
+`etcd_keys` operates similar to
+[consul_keys](https://www.terraform.io/docs/providers/consul/r/keys.html)
+
+```
+provider "etcd" {
+    endpoint = "http://oneof.my.etcd.servers.or.proxies:port"
+}
+
+resource "etcd_keys" "ami" {
+    # Read the launch AMI from etcd
+    key {
+        name = "ami"
+        path = "service/app/launch_ami"
+        default = "ami-1234"
+    }
+
+    # Set the CNAME of our load balancer as a key
+    key {
+        name = "elb_cname"
+        path = "service/app/elb_address"
+        value = "${aws_elb.app.dns_name}"
+    }
+
+# Start our instance with the dynamic ami value
+resource "aws_instance" "app" {
+    ami = "${consul_keys.app.var.ami}"
+    ...
+}
+```

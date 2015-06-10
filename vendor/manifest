@@ -68,6 +68,27 @@
 			"repository": "https://github.com/hashicorp/yamux",
 			"revision": "b2e55852ddaf823a85c67f798080eb7d08acd71d",
 			"branch": "master"
+		},
+		{
+			"importpath": "github.com/coreos/go-etcd/etcd",
+			"repository": "https://github.com/coreos/go-etcd",
+			"revision": "4cceaf7283b76f27c4a732b20730dcdb61053bf5",
+			"branch": "master",
+			"path": "/etcd"
+		},
+		{
+			"importpath": "github.com/ugorji/go/codec",
+			"repository": "https://github.com/ugorji/go",
+			"revision": "821cda7e48749cacf7cad2c6ed01e96457ca7e9d",
+			"branch": "master",
+			"path": "/codec"
+		},
+		{
+			"importpath": "github.com/coreos/etcd/error",
+			"repository": "https://github.com/coreos/etcd",
+			"revision": "140378332656bdfd3a50859512a8141b05749e3a",
+			"branch": "master",
+			"path": "/error"
 		}
 	]
 }
