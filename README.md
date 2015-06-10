@@ -86,7 +86,7 @@ resource "etcd_keys" "ami" {
 
 # Start our instance with the dynamic ami value
 resource "aws_instance" "app" {
-    ami = "${consul_keys.app.var.ami}"
+    ami = "${etcd_keys.app.var.ami}"
     ...
 }
 ```
