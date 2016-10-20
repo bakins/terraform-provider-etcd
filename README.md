@@ -3,8 +3,7 @@
 [Terraform](http://terraform.io) provider for etcd.
 ## Status
 
-Development/Testing.
-
+Unmaintained. This is no longer under active development.
 
 ## TODO
 
